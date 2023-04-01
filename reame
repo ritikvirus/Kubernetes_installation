@@ -1,2 +1,0 @@
-# How to Install Kubernetes
-> To set up Kubernetes manually on 2 nodes, you will need to designate one node as the control-plane (master) node and the other as a worker node. In this guide, we'll use Ubuntu as the operating system. Ensure that both nodes meet the following minimum requirements:
