@@ -9,18 +9,7 @@
 
 ## Step 1: Set up the environment These Commands Run every Nodes Work and Master Both
 ```
-sudo apt-get update && sudo apt-get upgrade -y && \
-sudo apt-get install -y docker.io && \
-sudo systemctl enable docker && \
-sudo systemctl start docker && \
-sudo apt-get update && sudo apt-get install -y apt-transport-https curl && \
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list && \
-sudo apt-mark unhold kubelet kubeadm kubectl && \
-sudo apt-get purge kubelet kubeadm kubectl && \
-sudo apt-get update -y && \
-sudo apt-get install -y kubelet kubeadm kubectl && \
-sudo apt-mark hold kubelet kubeadm kubectl
+echo -e '#!/bin/bash\nsudo apt-get update && sudo apt-get upgrade -y\nsudo apt-get install -y docker.io\nsudo systemctl enable docker\nsudo systemctl start docker\nsudo apt-get update && sudo apt-get install -y apt-transport-https curl\ncurl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -\necho "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list\nsudo apt-mark unhold kubelet kubeadm kubectl\nsudo apt-get purge kubelet kubeadm kubectl\nsudo apt-get update -y\nsudo apt-get install -y kubelet kubeadm kubectl\nsudo apt-mark hold kubelet kubeadm kubectl' > install_kubeadm.sh && chmod +x install_kubeadm.sh && ./install_kubeadm.sh
 ```
 ## Step 2: Initialize the control-plane node (Master NODE)
 1. On the control-plane node, initialize the Kubernetes cluster using kubeadm:
