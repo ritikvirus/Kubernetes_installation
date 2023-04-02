@@ -41,9 +41,11 @@ sudo kubeadm join <control-plane-ip>:6443 --token <token> --discovery-token-ca-c
 kubectl get nodes
 ```
 ### You should see both nodes in the "Ready" state. Congratulations, you have successfully set up a N-node Kubernetes cluster manually!
-## Error Solutions
+## Error Handling
 > **Note**
 > The connection to the server 172.31.2.185:6443 was refused - did you specify the right host or port?
+> Make sure your ports is open if your ports already open then use this steps
+
 #### Your Facing like this error then run this command 
 ```
 sudo cp /etc/kubernetes/admin.conf $HOME/
