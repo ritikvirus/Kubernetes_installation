@@ -1,6 +1,18 @@
 # Kubernetes_installation
 > To set up Kubernetes manually on N nodes, you will need to designate one node as the control-plane (master) node and the other as a worker node. In this guide, we'll use Ubuntu as the operating system. Ensure that both nodes meet the following minimum requirements:
 
+# The following ports should be open:
+
+## Control-plane node(s):
+* 6443 (API server)
+* 2379-2380 (etcd)
+* 10250 (kubelet API)
+* 10251 (kube-scheduler)
+* 10252 (kube-controller-manager)
+## Worker nodes:
+* 10250 (kubelet API)
+* 30000-32767 (NodePort services)
+## System Requirements
 * 2 or more CPU cores
 * 2 GB or more of RAM
 * A unique hostname, MAC address, and product_uuid for every node
